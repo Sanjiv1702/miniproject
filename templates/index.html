@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Finance Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="card">
+        <h2>Add Transaction</h2>
+        <form method="post" action="/add">
+            <input type="number" name="amount" placeholder="Amount (₹)" required><br>
+            <input type="text" name="category" placeholder="Category" required><br>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Transactions</h2>
+        <table>
+            <tr><th>ID</th><th>Amount</th><th>Category</th><th>Status</th></tr>
+            {% for t in transactions %}
+            <tr>
+                <td>{{ t[0] }}</td>
+                <td>₹{{ t[1] }}</td>
+                <td>{{ t[2] }}</td>
+                <td>{{ t[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
